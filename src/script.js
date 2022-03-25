@@ -9,9 +9,9 @@ import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js'
  * Debug
  */
  const debugObject = {}
- const gui = new dat.GUI({
-     width: 400
- })
+//  const gui = new dat.GUI({
+//      width: 400
+//  })
 
 // const gui = new dat.GUI()
 
@@ -53,7 +53,7 @@ gltfLoader.setDRACOLoader(dracoLoader)
  * Objects
  */
 // Texture
-const bakedTexture = textureLoader.load('baked3.jpg')
+const bakedTexture = textureLoader.load('baked.jpg')
 bakedTexture.flipY = false
 bakedTexture.encoding = THREE.sRGBEncoding
 
@@ -77,10 +77,14 @@ const bakedMaterial = new THREE.MeshBasicMaterial({ map: bakedTexture })
  * Model
  */
 gltfLoader.load(
-    'block.glb',
+    'sewage.glb',
     (gltf) => {
-        gltf.scene.position.set(2, - 0.5, 0)
-        gltf.scene.rotation.x = Math.PI * 0.1
+        gltf.scene.position.set(2, 0.6, 0.5)
+        gltf.scene.rotation.x = Math.PI * 0.2
+        gltf.scene.rotation.y = Math.PI * - 0.3
+        gltf.scene.scale.x = 2
+        gltf.scene.scale.y = 2
+        gltf.scene.scale.z = 2
         scene.add(gltf.scene)
 
         // Get each object
@@ -92,10 +96,32 @@ gltfLoader.load(
 )
 
 gltfLoader.load(
-    'block.glb',
+    'sewage.glb',
     (gltf) => {
-        gltf.scene.position.set(0, - 4.5, 0)
+        gltf.scene.position.set(- 2.5, - 4, 0)
         gltf.scene.rotation.x = Math.PI * 0.1
+        gltf.scene.scale.x = 4
+        gltf.scene.scale.y = 4
+        gltf.scene.scale.z = 4
+        scene.add(gltf.scene)
+
+        // Get each object
+        const bakedMesh = gltf.scene.children.find((child) => child.name === 'baked')
+
+        // Apply materials
+        bakedMesh.material = bakedMaterial
+    }
+)
+
+gltfLoader.load(
+    'sewage.glb',
+    (gltf) => {
+        gltf.scene.position.set(0, - 8.6, - 0.5)
+        gltf.scene.rotation.x = Math.PI * - 0.1
+        gltf.scene.rotation.y = Math.PI * - 0.5
+        gltf.scene.scale.y = 3
+        gltf.scene.scale.z = 3
+        gltf.scene.scale.x = 3
         scene.add(gltf.scene)
 
         // Get each object
@@ -212,9 +238,9 @@ renderer.outputEncoding = THREE.sRGBEncoding
 renderer.setSize(sizes.width, sizes.height)
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2))
 
-debugObject.clearColor = '#ffffff'
+debugObject.clearColor = '#140033'
 renderer.setClearColor(debugObject.clearColor)
-gui.addColor(debugObject, 'clearColor')
+// gui.addColor(debugObject, 'clearColor')
 
 /**
  * Scroll
@@ -230,16 +256,16 @@ window.addEventListener('scroll', () => {
     if (newSection != currentSection) {
         currentSection = newSection
 
-        gsap.to(
-            sectionMeshes[currentSection].rotation,
-            {
-                duration: 1.5,
-                ease: 'power2.inOut',
-                x: '+=6',
-                y: '+=3',
-                z: '+=1.5'
-            }
-        )
+        // gsap.to(
+        //     sectionMeshes[currentSection].rotation,
+        //     {
+        //         duration: 1.5,
+        //         ease: 'power2.inOut',
+        //         x: '+=6',
+        //         y: '+=3',
+        //         z: '+=1.5'
+        //     }
+        // )
     }
 })
 

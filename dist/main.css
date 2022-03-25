@@ -1,0 +1,130 @@
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #1e1a20;
+}
+/* html,
+body
+{
+    overflow: hidden;
+} */
+
+.webgl
+{
+    position: fixed;
+    top: 0;
+    left: 0;
+    outline: none;
+}
+
+/* header */
+header {
+    background-color: #fff;
+}
+
+#pc-nav {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 200;
+}
+
+.nav-box {
+    top: 0;
+    display: flex;
+    justify-content: space-between;
+    max-width: 1080px;
+    height: 80px;
+    padding: 20px;
+    margin: 0 auto;
+}
+
+header a {
+    position: relative;
+    display: inline-block;
+    font-size: 15px;
+    height: 50px;
+    margin: 0 1.3rem;
+    letter-spacing: 0.12rem;
+    line-height: 50px;
+    text-decoration: none;
+    color: #fff;
+}
+
+header a:hover{
+    color: #fff;
+    opacity: 0.8;
+}
+
+
+.section
+{
+    display: flex;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+    font-family: 'Cabin', sans-serif;
+    color: #ffeded;
+    text-transform: uppercase;
+    font-size: 7vmin;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+section:nth-child(even)
+{
+    justify-content: center;
+}
+
+.col
+{
+    width: 50%;
+}
+
+h1, h2
+{
+    font-size: 8vmin;
+}
+
+section p
+{
+    font-size: 2vmin;
+    text-transform: none;
+}
+
+.col2
+{
+    width: 80%;
+    margin-top: 70vmin;
+    color: #1e1a20;
+}
+
+.sec3
+{
+    justify-content: space-between;
+}
+
+.sec3 p
+{
+    width: 60%;
+}
+
+/* footer */
+
+footer {
+    display: flex;
+    height: 5vh;
+    position: relative;
+    font-family: 'Cabin', sans-serif;
+    color: #fff;
+    font-size: 12px;
+    padding-left: 50%;
+    padding-right: 45%;
+    
+}
+
+/*# sourceMappingURL=main.css.map*/
